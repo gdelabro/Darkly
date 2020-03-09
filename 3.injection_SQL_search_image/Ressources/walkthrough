@@ -1,0 +1,3 @@
+Une injection SQL dans la recherche d'image nous permet de voir toute les images
+de la base de donnée:
+1 OR 1;--
