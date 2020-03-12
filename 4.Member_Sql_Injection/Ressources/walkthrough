@@ -1,1 +1,25 @@
-5 UNION SELECT last_name,1 from users#
+Pour cette injection sql, le but va etre de lire les autres colonnes non visible
+dans notre navigateur. Pour ce faire, on utilise la recherche suivante:
+(remarquez que 5 est l'id du member qu'il faut craquer)
+
+5 UNION SELECT 1,column_name FROM information_schema.columns
+
+cette injection va nous donner toutes les colonnes de toutes les tables, mais si
+on passe toutes les colonnes du debut et que l'on va a la fin, on voit des champs
+qui nous interresse beaucoup plus comme: user_id, first_name, last_name, ...
+On va donc les afficher un par un comme ceci:
+
+5 UNION SELECT first_name,last_name FROM users
+
+mais celles qui nous interressent sont les colonnes commentaire et countersign car
+elles contiennent des indices pour obtenir le flag donc on va faire:
+
+5 UNION SELECT commentaire,countersign FROM users
+
+La on obtient un hash md5 et des consignes pour obtenir notre flag. On nous demande
+de decrypter le hash puis de mettre le message en minuscule et enfin, le flag
+sera le hash sha256 de ce nouveau message. Donc:
+
+hash = 5ff9d0165b4f92b14994e5c685cdce28
+decrypter = FortyTwo -> fortytwo
+flag = hash sha256 de fortytwo = 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5

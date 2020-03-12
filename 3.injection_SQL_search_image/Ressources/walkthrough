@@ -1,3 +1,25 @@
-Une injection SQL dans la recherche d'image nous permet de voir toute les images
-de la base de donnée:
-1 OR 1;--
+Pour cette injection sql, le but va etre de lire les autres colonnes non visible
+dans notre navigateur. Pour ce faire, on utilise la recherche suivante:
+(remarquez que 5 est l'id de l'image qu'il faut craquer)
+
+5 UNION SELECT 1,column_name FROM information_schema.columns
+
+cette injection va nous donner toutes les colonnes de toutes les tables, mais si
+on passe toutes les colonnes du debut et que l'on va a la fin, on voit des champs
+qui nous interresse beaucoup plus comme: url,title,comment ...
+On va donc les afficher un par un comme ceci:
+
+5 UNION SELECT url,title FROM list_images
+
+mais celle qui nous interresse est la colonne comment car
+elle contient des indices pour obtenir le flag donc on va faire:
+
+5 UNION SELECT comment,1 FROM list_images
+
+La on obtient un hash md5 et des consignes pour obtenir notre flag. On nous demande
+de decrypter le hash puis de mettre le message en minuscule et enfin, le flag
+sera le hash sha256 de ce nouveau message. Donc:
+
+hash = 1928e8083cf461a51303633093573c46
+decrypter = albatroz
+flag = hash sha256 de albatroz = f2a29020ef3132e01dd61df97fd33ec8d7fcd1388cc9601e7db691d17d4d6188

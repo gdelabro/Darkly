@@ -1,0 +1,4 @@
+Dans la section feedback, une faille xss est presente, il suffit de rentrer
+<script>a dans le champ name pour obtenir le flag. On remarque aussi que le champ
+est bloque a 10 charactere, mais il est possible de changer ca dans l'html de la
+page.
