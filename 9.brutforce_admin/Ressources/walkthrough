@@ -1,0 +1,13 @@
+En realisant une injection sql depuis la page cherchant les membres en fonction
+de leur id, on peut y voir un table_schema nommé Member_Brut_Force avec l'input
+suivant:
+
+8 UNION SELECT table_schema,table_name FROM information_schema.tables
+
+On se doute donc qu'il faut faire un brutforce de ces member sur la page signin.
+Pour se faire, nous allons ecrire un petit script qui testera des mots de passes
+que nous lui donnerons venant d'un dictionnaire de mot de passe commun. Pour
+cet exploit, nous utiliserons les 30 premiers mots de passes du dictionnaire suivant:
+https://github.com/DavidWittman/wpxmlrpcbrute/blob/master/wordlists/1000-most-common-passwords.txt
+Il suffit de compilé le programme script.c puis de l'executer et il nous dira
+si l'un des mot de passe fait apparaitre un flag.

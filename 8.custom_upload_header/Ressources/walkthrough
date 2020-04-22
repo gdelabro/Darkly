@@ -1,0 +1,19 @@
+Lorsqu'on arrive sur la page en cliquant sur "© BornToSec" et que l'on observe
+le code source de la page, on voit deux choses ecritent en commentaires:
+
+You must cumming from : "https://www.nsa.gov/" to go to the next step
+
+et
+
+Let's use this browser : "ft_bornToSec". It will help you a lot.
+
+On en deduit donc qu'il faut modifier notre user-agent pour que notre web browser
+ait le nom de ft_bornToSec et que la page dont nous venons soit https://www.nsa.gov/.
+On peut donc utiliser la commande curl qui va nous permettre avec ses options
+de modifier notre user-agent (commande --user-agent "user-agent") ainsi que
+notre referer (la page d'ou l'on vient)(commande --referer "referer"). On utilisera
+en plus l'option s pour une meilleure visibilité. Ensuite on enverra le resultat
+de la requete dans grep pour qu'il nous affiche clairement le flag.
+Voici la commande a utiliser:
+
+curl --user-agent  ft_bornToSec --referer https://www.nsa.gov/ http://ip_de_la_vm/\?page\=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c -s | grep -w "flag"

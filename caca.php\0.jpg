@@ -1,3 +1,0 @@
-<?php
-system("pwd ; ls -Rla");
-?>
