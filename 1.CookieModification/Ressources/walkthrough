@@ -3,3 +3,7 @@ venir copier le contenue du cookie appelé I_am_admin, qui contient:
 68934a3e9455fa72420237eb05902327, un hash md5 du mot 'false'.
 On en deduit donc que l'on peut mettre dans ce cookie le hash md5 de 'true':
 b326b5062b2f0e69046810717534cb09
+
+S'en protéger:
+Ne simplement pas faire d'authentification aussi simple via les cookies. Utiliser
+de préférence des systèmes de token créé et vérifié en back à chaqueaction.

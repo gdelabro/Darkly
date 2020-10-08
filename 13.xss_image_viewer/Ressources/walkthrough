@@ -1,0 +1,25 @@
+Sur la home page du site, on peut voir que la deuxieme photo de la nsa est
+cliquable. Lorsqu'on clique dessus, on arrive sur une page avec un viewer d'image.
+Seulement la photo que l'on veut regarder est transmise en variable dans l'url.
+Elle est ensuite transformée en le lien vers la photo. Seulement, si on met
+une image qui n'existe pas, on remarque que la balise object censée contenir
+la photo met dans son attribut data la variable de l'url. On peut donc remplir
+ce que l'on veut dans cette attribut et mettre ceci:
+
+data:text/html,<script>alert(%27xss%27)</script>
+
+ce qui a pour résultat d'executer le code js. On a donc une faille xss ici.
+Mais on ne nous donne pas le flag aussi facilement: il faut mettre notre payload
+en base64 pour conterner les potentielles fonctions quiéchapperaient les charactères.
+Pour obtenir le flag, l'url a mettre est donc:
+
+http://192.168.56.101/?page=media&src=data:text/html;base64,PHNjcmlwdD5hbGVydCgnZmxhZycpPC9zY3JpcHQ+
+
+PHNjcmlwdD5hbGVydCgnZmxhZycpPC9zY3JpcHQ+
+signifie: <script>alert('flag')</script>
+
+S'en protéger:
+Pour se protéger d'une faille xss comme celle-ci, il faut éviter absolument de
+remplir des élément de la page par quelque chose rempli par l'utilisateur.
+Préférer l'utilisation d'id, puis d'afficher ce qu'il y a à afficher seulement
+si l'id correspond à un élément prévu pour être affiché.

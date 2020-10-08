@@ -3,3 +3,7 @@ on arrive sur une page ou l'on peut seulement submit, mais si on regarde dans
 l'html, il est possible de changer l'adresse a laquelle on envoie le mot de passe
 (probablement) et en modifiant cette adresse puis en appuyant sur submit, on obtient
 le flag.
+
+S'en protéger:
+Simplement gérer les informations importantes en back et ne pas laisser l'utilisateur
+modifier ces mêmes informations.

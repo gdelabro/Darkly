@@ -17,3 +17,9 @@ de la requete dans grep pour qu'il nous affiche clairement le flag.
 Voici la commande a utiliser:
 
 curl --user-agent  ft_bornToSec --referer https://www.nsa.gov/ http://ip_de_la_vm/\?page\=e43ad1fdc54babe674da7c7b8f0127bde61de3fbe01def7d00f151c2fcca6d1c -s | grep -w "flag"
+
+S'en protéger:
+Dans un premier temps, ne pas laisser d'information importante dans les commentaires
+d'une page est crucial puis garder les bonnes habitudes de "Never Trust User"
+et ne pas lui donner trop de privilège si son profil présente certaine particularité
+qu'il peut obtenir par lui même (comme son user-agent ou bien la page d'ou il vient).

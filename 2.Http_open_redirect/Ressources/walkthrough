@@ -2,3 +2,8 @@ quand on regarde quel url nous est proposé lorsque l'on veut cliquer sur les
 reseaux sociaux, on voit que le site en question passe dabord par une methode
 GET ou page=redirect et site=site_redirection. On peut donc donner comme
 url http://192.168.56.101/index.php?page=redirect&site=corrupted_site
+
+S'en protéger:
+Si on décide de faire des redirection gérer par le site, il faut impérativement
+checker le site vers lequel on redirige ou bien cela présente de gros risque
+en terme de phishing.

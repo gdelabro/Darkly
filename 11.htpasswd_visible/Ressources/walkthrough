@@ -1,0 +1,18 @@
+Si on regarde le fichier robots.txt qui sert a eviter que des crawler (un robot
+d'indexation) puisse mapper certaine partie du site, on observe que deux dossiers
+sont "caché" sur le site. On va ici s'interesser au premier nommé /whatever.
+Dans whatever on peut y trouver un fichier htpasswd qui contient un login(root)
+et un mot de passe hasher en md5(dechiffré: dragon). Désormais reste a savoir ou
+le rentrer, on peut essayer sur la page de login mais il ne fonctionne pas. On
+se doute donc qu'il existe une page admin et la meilleure maniere de la trouver
+reste le guessing (parce qu'elle est simple a trouver) et ce qui vient en premier
+est evidement site/admin qui est juste sur ce site. On arrive sur une page
+d'authentification et lorsqu'on rentre notre login/motdepasse, on obtient le flag
+
+Il aurait d'ailleurs meme été possible de brutforce le login root etant donné
+que son mot de passe est très commun a la condition que l'on cherche avec le bon
+login.
+
+S'en protéger:
+Ne jamais mettre d'information confidentiel quelque part de manière visible sur
+le site web.

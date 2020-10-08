@@ -1,0 +1,14 @@
+On voit que sur quasiment toutes les pages du site l'url est construit de la
+sorte:
+http://ip/index.php?page=MA_PAGE
+on se doute donc qu'il y a une inclusion en PHP pour générer toutes les pages.
+Seulement on peut choisir le fichier que l'on veut via le paramètre page de l'url.
+On peutut donc rentrer l'url suivant pour afficher les user du server et dans
+notre cas pour obtenir le flag:
+http://ip/index.php?page=../../../../../etc/passwd
+
+S'en protéger:
+Pour s'en protéger, il suffit de ne pas inclure directement l'input de l'utilisateur.
+On peut par exemple faire une table de hash permettant de récurer directement le
+fichier à inclure en question et de ne rien include si on ne trouve pas de fichier
+correspondant dans notre table de hash.

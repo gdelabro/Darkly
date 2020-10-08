@@ -1,0 +1,20 @@
+En ouvrant le fichier robots.txt, on remarque un dossier .hidden. En ouvrant
+ce dossier, on voit une 20ene de dossiers qui pointent eux même vers d'autres
+dossiers et un fichier readme pour chaque dossier. Un flag est probablement
+glissé dans l'un des readme.
+On commence donc par download tous les dossiers grace a wget de cette manière:
+
+wget -np -k -r -e robots=off http://192.168.56.101/.hidden/
+
+On peut ensuite lancer la commande:
+
+cat */*/*/README */*/README */README > /tmp/result
+
+Cela va mettre le contenu de tous les readme dans un fichier result. On termnine
+par lancer le script python qui permet de trouver le flag parmis les readme.
+
+python script.py /tmp/result
+
+S'en protéger:
+Ne pas mettre d'information dans une partie visible du site et ne pas écrire
+les dossiers cachés dans le robots.txt.

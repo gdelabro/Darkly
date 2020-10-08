@@ -1,0 +1,16 @@
+Sur la page ou l'on peut upload un fichier, on peut consater que dans certain
+cas (tous les fichier autres que jpg), les fichiers sont refusé d'etre upload.
+Cependant le server ne check pas le nom du fichier mais sont type, ce que l'on
+va essayer de modifier. En utilisant curl, on peut preciser le type du fichier
+que l'on upload. On va donc upload un fichier php en precisant qu'il est de
+type jpg bien que ce soit faux.
+La commande si dessous permet d'envoyer un formulaire avec les parametres
+uploaded et Upload en indiquant image/jpg comme type de fichier et va ensuite
+simplement nous montrer la ligne qui nous indique si le fichier est upload ou pas
+qui contient aussi le flag:
+
+curl -F "uploaded=@file.php;type=image/jpg" -F "Upload=Upload" -H "Content-Type: multipart/form-data" "http://192.168.56.101/index.php?page=upload#" | grep -w "uploaded"
+
+S'en protéger:
+Vérifier le type de fichier uploadé mais aussi son nom et peut être même son
+contenu.

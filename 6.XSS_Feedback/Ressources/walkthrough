@@ -2,3 +2,9 @@ Dans la section feedback, une faille xss est presente, il suffit de rentrer
 <script>a dans le champ name pour obtenir le flag. On remarque aussi que le champ
 est bloque a 10 charactere, mais il est possible de changer ca dans l'html de la
 page.
+
+S'en protéger:
+Pour protéger une faille XSS(surtout les xss stockés comme ici), il faut
+"sanitize" les entrées recu via les fonctions htmlspecialchars() et htmlentities()
+en PHP par exemple et renvoyer le résultat avec des characteres qui n'échappent
+pas les champs html.

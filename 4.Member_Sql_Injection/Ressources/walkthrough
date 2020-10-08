@@ -23,3 +23,7 @@ sera le hash sha256 de ce nouveau message. Donc:
 hash = 5ff9d0165b4f92b14994e5c685cdce28
 decrypter = FortyTwo -> fortytwo
 flag = hash sha256 de fortytwo = 10a16d834f9b1e4068b25c4c46fe0284e99e44dceaf08098fc83925ba6310ff5
+
+S'en protéger:
+Pour se protéger des injections SQL, il faut "sanitize" l'entrée de l'utilisateur,
+par exemple en PHP, on peut utiliser la fonction mysql_real_escape_string().

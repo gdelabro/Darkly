@@ -11,3 +11,8 @@ cet exploit, nous utiliserons les 30 premiers mots de passes du dictionnaire sui
 https://github.com/DavidWittman/wpxmlrpcbrute/blob/master/wordlists/1000-most-common-passwords.txt
 Il suffit de compilé le programme script.c puis de l'executer et il nous dira
 si l'un des mot de passe fait apparaitre un flag.
+
+S'en protéger:
+Pour se protéger des brutforces, il faut toujours utiliser des mots de passes
+non commun et compliqué à trouver (ex: n21j!nM5e1a_D4). Ensuite on peut aussi
+limiter le nombre de tentative sur un compte ou bien depuis une adresse ip.
